@@ -1,6 +1,7 @@
 import React from 'react';
 import Day from './Day';
 import { groupByDays, IDay, IRecord } from './models';
+import NewRecord from './NewRecord';
 
 interface IProps {
 }
@@ -28,8 +29,18 @@ class App extends React.Component<IProps, IState> {
             );
         });
 
+        const date = new Date();
+        date.setHours(0, 0, 0, 0);
+
         return (
-            <div>{days}</div>
+            <div>
+                <div>
+                    <NewRecord date={date}/>
+                </div>
+                <div>
+                    {days}
+                </div>
+            </div>
         );
     }
 
